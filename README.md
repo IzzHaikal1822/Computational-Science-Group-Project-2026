@@ -8,3 +8,5 @@ https://www.kaggle.com/code/caesarmario/drug-classification-w-various-ml-models/
 https://github.com/JosephineTella/Drug-Classification/tree/main
 
 https://github.com/AnjanaAbY/Drug-Classification-Model/tree/main
+
+https://www.kaggle.com/datasets/redwankarimsony/heart-disease-data
