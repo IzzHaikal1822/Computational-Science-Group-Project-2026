@@ -99,3 +99,41 @@ Here are the specific textbooks, articles, and scientific concepts that serve as
 *   **Book:** Quarteroni, A., Sacco, R., & Saleri, F. (2007). *Numerical Mathematics* (2nd Ed.). Springer. *(Explains the numerical methods used to solve ODEs in computational science).*
 
 Citation: Smith, S. C., et al. (2011). AHA/ACCF Secondary Prevention and Risk Reduction Therapy for Patients With Coronary and Other Atherosclerotic Vascular Disease: 2011 Update. Circulation, 124(22), 2458-2473.
+
+**CRITICAL DISCLAIMER:** *The mathematical models discussed below and their corresponding references are strictly for educational and conceptual data science purposes. While they are based on real pharmacological modeling principles, they are simplified approximations and must never be used to make actual clinical decisions, prescribe dosages, or diagnose real patients.*
+
+The logic for the **Non-Linear $E_{max}$ Model** (Section 11) is the gold standard in modern pharmacological modeling. It addresses the flaw of the linear model (from Section 10) by mathematically acknowledging that a drug's effect has a maximum physiological limit, regardless of how much drug is in the system.
+
+Here are the specific textbooks, seminal articles, and clinical data sources that provide the foundation for this code:
+
+### 1. The $E_{max}$ Pharmacodynamic Equation
+**The Code:** `drug_effect = (E_max * C) / (EC_50 + C)`
+**The Concept:** This equation is the foundational pillar of modern Pharmacodynamics. It is known as the **Hill Equation** or the **$E_{max}$ Model**. It mathematically describes a hyperbolic curve where the drug's effect rises sharply at low concentrations but eventually flattens out at an absolute ceiling ($E_{max}$), preventing the equation from predicting biologically impossible results (like a blood pressure of zero).
+
+**References:**
+*   **Seminal Article:** Holford, N. H., & Sheiner, L. B. (1981). Understanding the dose-effect relationship: clinical application of pharmacokinetic-pharmacodynamic models. *Clinical Pharmacokinetics*, 6(6), 429-453. *(This is the legendary paper that bridged the gap between pharmacokinetics and clinical effects using the $E_{max}$ model).*
+*   **Textbook:** Gabrielsson, J., & Weiner, D. (2012). *Pharmacokinetic and Pharmacodynamic Data Analysis: Concepts and Applications* (5th Ed.). Swedish Pharmaceutical Press. *(Chapters on PD modeling provide the exact mathematical proofs for this equation).*
+
+### 2. The Turnover Response (Homeostasis vs. Drug)
+**The Code:** `dPdt = r_bp * (P_base - P) - drug_effect`
+**The Concept:** This represents an **Indirect Response Model (Turnover Model)**. The human body is not a static rock; it actively fights back to maintain homeostasis. The equation calculates the tug-of-war between the body's natural regulatory systems trying to keep blood pressure at baseline (`P_base`) and the ACE inhibitor pushing it down.
+
+**References:**
+*   **Seminal Article:** Dayneka, N. L., Garg, V., & Jusko, W. J. (1993). Comparison of four basic models of indirect pharmacodynamic responses. *Journal of Pharmacokinetics and Biopharmaceutics*, 21(4), 457-478. *(Dr. William Jusko's laboratory pioneered these exact equations to model how drugs inhibit natural physiological production/destruction rates).*
+*   **Article:** Derendorf, H., & Meibohm, B. (1999). Modeling of pharmacokinetic/pharmacodynamic (PK/PD) relationships: concepts and perspectives. *Pharmaceutical Research*, 16(2), 176-185.
+
+### 3. ACE Inhibitor Parameters (Lisinopril)
+**The Code:** `half_life_hours = 12.0` and the blood pressure parameters.
+**The Concept:** ACE (Angiotensin-Converting Enzyme) inhibitors block the body from producing a hormone that narrows blood vessels. Lisinopril is a standard, once-daily ACE inhibitor with an effective half-life of roughly 12 hours. The $E_{max}$ for systolic blood pressure reduction is typically capped around 20-40 mmHg for hypertensive patients depending on baseline severity.
+
+**References:**
+*   **Clinical Data / FDA Label:** [FDA Prescribing Information for ZESTRIL (lisinopril)](https://www.accessdata.fda.gov/drugsatfda_docs/label/2014/019777s064lbl.pdf). *(Section 12: Clinical Pharmacology specifies the 12-hour effective half-life and the magnitude of blood pressure reduction).*
+*   **Article:** Donnelly, R., et al. (1992). Pharmacokinetic-pharmacodynamic relationships of alpha-adrenoceptor antagonists and ACE inhibitors. *Clinical Pharmacokinetics*, 22(3), 193-207. *(Discusses how to apply these specific mathematical models to blood-pressure-lowering medications).*
+
+### 4. Numerical Integration in Python
+**The Code:** `from scipy.integrate import odeint`
+**The Concept:** Because this is a system of coupled, non-linear ordinary differential equations, it cannot be easily solved with simple algebra. Python's `scipy` library uses robust numerical methods (like the LSODA algorithm) to simulate the curve second-by-second.
+
+**References:**
+*   **Documentation:** [SciPy Official Documentation: `scipy.integrate.odeint`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html)
+*   **Textbook:** Hindmarsh, A. C. (1983). ODEPACK, A Systematized Collection of ODE Solvers. *Scientific Computing*, 55-64. *(The underlying mathematics of the solver used by Python).*
