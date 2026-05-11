@@ -11,6 +11,9 @@ https://github.com/AnjanaAbY/Drug-Classification-Model/tree/main
 
 https://www.kaggle.com/datasets/redwankarimsony/heart-disease-data
 
+The dataset for heart disease :
+https://www.kaggle.com/datasets/arezaei81/heartcsv
+
 Reference for Heart Disease Drug Classification
 
 1. Blood Pressure (trestbps)
