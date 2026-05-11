@@ -1,4 +1,5 @@
-References
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 Reference for Heart Disease Drug Classification
 
@@ -47,7 +48,7 @@ The Medical Reference: AHA/ACC Guidelines for Secondary Prevention for Patients 
 The Science: If a patient has known atherosclerotic cardiovascular disease (which is what a "Target = 1" prediction implies), "Secondary Prevention" protocols kick in. Low-dose aspirin (75-162 mg daily) is recommended indefinitely for these patients to prevent blood clots that cause heart attacks and strokes.
 
 
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **CRITICAL DISCLAIMER:** *The code provided is a simplified mathematical approximation designed for educational and conceptual data science purposes. While it is rooted in real pharmacological principles, it is a basic linear model and must never be used to make actual clinical decisions or predict real-world patient outcomes.*
 
@@ -92,6 +93,7 @@ Here are the specific textbooks, articles, and scientific concepts that serve as
 
 Citation: Smith, S. C., et al. (2011). AHA/ACCF Secondary Prevention and Risk Reduction Therapy for Patients With Coronary and Other Atherosclerotic Vascular Disease: 2011 Update. Circulation, 124(22), 2458-2473.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
