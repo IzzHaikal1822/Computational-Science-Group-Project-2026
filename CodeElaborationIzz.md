@@ -94,7 +94,6 @@ In your Python code, you are using ODEs to simulate **Pharmacokinetics (PK)** (h
 
 Let's break down the three models in your code step-by-step as if we are observing water in a bucket.
 
----
 
 ### 1. The Aspirin Model: The "Leaky Bucket" (Section 8)
 
