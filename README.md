@@ -3,13 +3,8 @@ Group Project based on machine learning application in computational biology usi
 
 The link used for the Dataset and the Codes
 
-https://www.kaggle.com/code/caesarmario/drug-classification-w-various-ml-models/notebook
+https://github.com/cmrivers/ebola/blob/master/SierraLeone_country.csv
 
-https://github.com/JosephineTella/Drug-Classification/tree/main
+https://www.kaggle.com/code/imdevskp/western-africa-ebola-outbreak-analysis/notebook
 
-https://github.com/AnjanaAbY/Drug-Classification-Model/tree/main
-
-https://www.kaggle.com/datasets/redwankarimsony/heart-disease-data
-
-The dataset for heart disease :
-https://www.kaggle.com/datasets/arezaei81/heartcsv
+https://www.kaggle.com/datasets/imdevskp/ebola-outbreak-20142016-complete-dataset
