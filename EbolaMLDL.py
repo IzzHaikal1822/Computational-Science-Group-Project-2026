@@ -769,6 +769,35 @@ for name, pred in [('MLP', mlp_pred_B), ('LSTM', lstm_pred_B)]:
     print(classification_report(y_test_B, pred, zero_division=0,
                                 labels=classes_B,
                                 target_names=classes_B))
+    
+# ── DL confusion matrices – Dataset B ────────────────────────────────────────
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+fig.suptitle("Dataset B – Confusion Matrices (Deep Learning)", fontsize=14)
+for ax, (name, pred) in zip(axes, [('MLP', mlp_pred_B), ('LSTM', lstm_pred_B)]):
+    cm = confusion_matrix(y_test_B, pred, labels=classes_B)
+    ConfusionMatrixDisplay(cm, display_labels=classes_B).plot(
+        ax=ax, colorbar=False, cmap='Oranges', xticks_rotation=30)
+    ax.set_title(name)
+plt.tight_layout()
+plt.savefig("confusion_matrices_dl_B.png", dpi=150, bbox_inches='tight')
+plt.show()
+
+# ── Training curves – Dataset B ───────────────────────────────────────────────
+history_mlp_B  = mlp_B.history   # need to capture history first — see note below
+history_lstm_B = lstm_B.history
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 4))
+for ax, history, title in [
+    (axes[0], history_mlp_B,  'MLP Training Curves (Dataset B)'),
+    (axes[1], history_lstm_B, 'LSTM Training Curves (Dataset B)'),
+]:
+    ax.plot(history.history['loss'],     label='Train loss')
+    ax.plot(history.history['val_loss'], label='Val loss',  linestyle='--')
+    ax.set_title(title); ax.set_xlabel("Epoch"); ax.set_ylabel("Loss")
+    ax.legend()
+plt.tight_layout()
+plt.savefig("training_curves_B.png", dpi=150, bbox_inches='tight')
+plt.show()
 
 
 # ============================================================
