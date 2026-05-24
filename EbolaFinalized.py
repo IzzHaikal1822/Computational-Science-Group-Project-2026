@@ -2,7 +2,7 @@
 # Machine Learning + Deep Learning – Ebola 2014-2016 Dataset
 # Task: Epidemic Phase Classification
 #
-# ML  Methods  : Random Forest, Gradient Boosting, Logistic Regression
+# ML  Methods  : Random Forest, Gradient Boosting, Logistic Regression, SEIR ODE
 # DL  Methods  : MLP (Multi-Layer Perceptron)
 #
 # Dataset comparison:
